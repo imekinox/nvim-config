@@ -41,29 +41,55 @@ packer.init {
 -- Install your plugins here
 return packer.startup(function(use)
   -- My plugins here
+  use 'bluz71/vim-moonfly-colors'
   use { "wbthomason/packer.nvim", commit = "00ec5adef58c5ff9a07f11f45903b9dbbaa1b422" } -- Have packer manage itself
+  --[[
   use { "nvim-lua/plenary.nvim", commit = "968a4b9afec0c633bc369662e78f8c5db0eba249" } -- Useful lua functions used by lots of plugins
   --use { "kyazdani42/nvim-web-devicons", commit = "8d2c5337f0a2d0a17de8e751876eeb192b32310e" }
   use { "kyazdani42/nvim-tree.lua", commit = "bdb6d4a25410da35bbf7ce0dbdaa8d60432bc243" }
-
-  use 'bluz71/vim-moonfly-colors'
-
+  --]]
   use { 'junegunn/fzf', run = './install --bin' }
   use 'junegunn/fzf.vim'
-  use 'neoclide/coc.nvim'
-  use 'mxw/vim-jsx'
-  use 'pangloss/vim-javascript'
-  use 'tpope/vim-fugitive'
-  use 'leafgarland/typescript-vim'
-  use 'peitalin/vim-jsx-typescript'
-  use 'preservim/nerdcommenter'
+  use { 'neoclide/coc.nvim', branch = 'master' }
+  use { 'neoclide/vim-jsx-improve' }
+  use { 'tpope/vim-commentary' }
+  use 'suy/vim-context-commentstring'
   use 'vim-airline/vim-airline'
+  --[[
+  use 'preservim/nerdcommenter'
   use 'tpope/vim-surround'
   use 'mg979/vim-visual-multi'
+  use {
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
+    config = function()
+      require("todo-comments").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end
+  }
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("trouble").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end
+  }
+  --]]
+
 
   -- Git
-  use { 'lewis6991/gitsigns.nvim', commit = "c18e016864c92ecf9775abea1baaa161c28082c3" }
+  use { 'lewis6991/gitsigns.nvim' }
+  use 'tpope/vim-fugitive'
 
+  -- AI
+  use 'github/copilot.vim'
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

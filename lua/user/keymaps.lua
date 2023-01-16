@@ -18,8 +18,8 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
-keymap("n", "<C-n>", ":m +1<CR>", opts)
-keymap("n", "<C-m>", ":m -2<CR>", opts)
+keymap("n", "<C-m>", ":m +1<CR>", opts)
+keymap("n", "<C-M>", ":m -2<CR>", opts)
 
 -- NvimTree
 keymap("n", "<C-t>", ":NvimTreeToggle<CR>", opts)

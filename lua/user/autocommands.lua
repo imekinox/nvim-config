@@ -39,8 +39,12 @@
 --})
 
 -- Highlight Yanked Text
---vim.api.nvim_create_autocmd({ "TextYankPost" }, {
-  --callback = function()
-    --vim.highlight.on_yank { higroup = "Visual", timeout = 200 }
-  --end,
---}) 
+vim.api.nvim_create_autocmd({ "TextYankPost" }, {
+  callback = function()
+    vim.highlight.on_yank { higroup = "Visual", timeout = 200 }
+  end,
+}) 
+
+
+vim.cmd [[command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)]]
+

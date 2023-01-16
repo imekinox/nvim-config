@@ -1,0 +1,7 @@
+{
+  "coc.preferences.useQuickfixForLocations": false,
+  "coc.preferences.extensionUpdateCheck": "never",
+  "suggest.snippetIndicator": "",
+  "eslint.nodePath": "/Users/imekinox/.nvm/versions/node/v16.16.0/lib/node_modules",
+  "eslint.autoFixOnSave": true
+}
