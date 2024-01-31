@@ -26,3 +26,8 @@ keymap("n", "<C-t>", ":NvimTreeToggle<CR>", opts)
 
 -- Git
 keymap("n", "<C-b>", ":Gitsigns blame_line<CR>", opts)
+
+-- Tabs
+keymap("n", "<M-Right>", "gt", opts)
+keymap("n", "<M-Left>", "gT", opts)
+keymap("n", "<M-Up>", ":tabnew<CR>", opts)
