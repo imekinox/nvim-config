@@ -1,5 +1,9 @@
 local opt = vim.opt -- for consiseness
 
+--enconding
+opt.encoding = "UTF-8"
+opt.fileencoding = "UTF-8"
+
 --line number
 opt.relativenumber = true
 opt.number = true
@@ -37,6 +41,7 @@ opt.splitbelow = true
 
 --fold
 opt.foldmethod = "indent"
+opt.foldenable = false
 vim.api.nvim_create_autocmd("FileType", { pattern = "TelescopeResults", command = [[setlocal nofoldenable]] })
 
 opt.iskeyword:append("-")
