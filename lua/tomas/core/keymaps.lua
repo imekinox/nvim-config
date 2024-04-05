@@ -34,22 +34,28 @@ keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer
 
 -- lsp keymaps
 keymap.set(
-  "n",
-  "<leader>jv",
-  '<cmd>lua require"telescope.builtin".lsp_definitions({jump_type="vsplit"})<CR>',
-  { noremap = true, silent = true, desc = "Open definition in vsplit" }
+	"n",
+	"<leader>jv",
+	'<cmd>lua require"telescope.builtin".lsp_definitions({jump_type="vsplit"})<CR>',
+	{ noremap = true, silent = true, desc = "Open definition in vsplit" }
 )
 
 keymap.set(
-  "n",
-  "<leader>jt",
-  '<cmd>lua require"telescope.builtin".lsp_definitions({jump_type="tab"})<CR>',
-  { noremap = true, silent = true, desc = "Open definition in tab" }
+	"n",
+	"<leader>jt",
+	'<cmd>lua require"telescope.builtin".lsp_definitions({jump_type="tab"})<CR>',
+	{ noremap = true, silent = true, desc = "Open definition in tab" }
 )
 
 keymap.set(
-  "n",
-  "<leader>js",
-  '<cmd>lua require"telescope.builtin".lsp_definitions({jump_type="split"})<CR>',
-  { noremap = true, silent = true, desc = "Open definition in split" }
+	"n",
+	"<leader>js",
+	'<cmd>lua require"telescope.builtin".lsp_definitions({jump_type="split"})<CR>',
+	{ noremap = true, silent = true, desc = "Open definition in split" }
 )
+
+keymap.set("n", "<C-m>", ":m +1<CR>", opts)
+keymap.set("n", "<C-M>", ":m -2<CR>", opts)
+
+keymap.set("n", "<M-Right>", "gt", opts)
+keymap.set("n", "<M-Left>", "gT", opts)
