@@ -138,7 +138,7 @@ Optimized parsers and LSP support for:
 ~/.config/nvim/
 ├── init.lua                    # Entry point
 ├── lazy-lock.json             # Plugin version lock file
-├── lua/tomas/
+├── lua/imekinox/
 │   ├── lazy.lua               # Lazy.nvim setup
 │   ├── core/
 │   │   ├── init.lua          # Core module loader
@@ -243,7 +243,7 @@ The telescope configuration intelligently excludes noise while preserving access
 ## 🎨 Customization
 
 ### Changing the Colorscheme
-Edit `lua/tomas/plugins/colorscheme.lua`:
+Edit `lua/imekinox/plugins/colorscheme.lua`:
 ```lua
 return {
   {
@@ -257,12 +257,12 @@ return {
 ```
 
 ### Adding New Languages
-1. Add parsers to `lua/tomas/plugins/treesitter.lua`
+1. Add parsers to `lua/imekinox/plugins/treesitter.lua`
 2. Install LSP servers through Mason (`:Mason`)
-3. Configure servers in `lua/tomas/plugins/lsp/lspconfig.lua`
+3. Configure servers in `lua/imekinox/plugins/lsp/lspconfig.lua`
 
 ### Custom Key Bindings
-Add your mappings to `lua/tomas/core/keymaps.lua`:
+Add your mappings to `lua/imekinox/core/keymaps.lua`:
 ```lua
 keymap.set("n", "<leader>custom", ":YourCommand<CR>", { desc = "Your custom command" })
 ```
@@ -270,7 +270,7 @@ keymap.set("n", "<leader>custom", ":YourCommand<CR>", { desc = "Your custom comm
 ## 📦 Plugin Management
 
 ### Adding Plugins
-Create a new file in `lua/tomas/plugins/` or add to existing ones:
+Create a new file in `lua/imekinox/plugins/` or add to existing ones:
 ```lua
 return {
   "author/plugin-name",

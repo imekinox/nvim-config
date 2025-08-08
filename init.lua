@@ -1,2 +1,2 @@
-require("tomas.core")
-require("tomas.lazy")
+require("imekinox.core")
+require("imekinox.lazy")
