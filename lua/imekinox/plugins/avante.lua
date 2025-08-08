@@ -48,6 +48,9 @@ return {
       -- Mode: "agentic" for modern tool-based interaction or "legacy" for older planning method
       mode = "agentic",
       
+      -- Input provider configuration
+      input_provider = "dressing", -- Use dressing.nvim for better input handling
+      
       -- Provider configurations
       providers = {
         claude = {
