@@ -60,7 +60,7 @@ return {
       providers = {
         claude = {
           endpoint = "https://api.anthropic.com",
-          model = "claude-4-sonnet-20241022", -- Claude 4 Sonnet - Latest model
+          model = "claude-3-5-sonnet-20241022", -- Claude 3.5 Sonnet - Latest available model
           timeout = 30000, -- Timeout in milliseconds
           api_key_name = "ANTHROPIC_API_KEY", -- Environment variable name
           extra_request_body = {
