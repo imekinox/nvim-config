@@ -1,4 +1,4 @@
-# 🚀 Tomas' Neovim Configuration
+# 🚀 imekinox's Neovim Configuration
 
 A modern, feature-rich Neovim configuration optimized for web development, with excellent support for JavaScript/TypeScript, React, Svelte, and more. Built with Lua and powered by [Lazy.nvim](https://github.com/folke/lazy.nvim) for efficient plugin management.
 
