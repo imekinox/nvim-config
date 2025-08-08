@@ -51,6 +51,11 @@ return {
       -- Input provider configuration
       input_provider = "dressing", -- Use dressing.nvim for better input handling
       
+      -- Disable copilot entirely
+      copilot = {
+        enabled = false,
+      },
+      
       -- Provider configurations
       providers = {
         claude = {
@@ -62,6 +67,9 @@ return {
             temperature = 0,
             max_tokens = 4096,
           },
+        },
+        copilot = {
+          enabled = false, -- Explicitly disable Copilot provider
         },
       },
       
