@@ -40,7 +40,6 @@ A modern, feature-rich Neovim configuration optimized for web development, with 
 
 ### ⚡ **Productivity Features**
 - **Auto-session** - Session management and restoration
-- **Copilot** - AI-powered code completion
 - **Surround** - Easy text surrounding (quotes, brackets, tags)
 - **Substitute** - Enhanced text substitution
 - **Trouble** - Beautiful diagnostics and quickfix list
@@ -153,7 +152,7 @@ Optimized parsers and LSP support for:
 │       ├── bufferline.lua    # Buffer tabs
 │       ├── colorscheme.lua   # Theme configuration
 │       ├── comment.lua       # Smart commenting
-│       ├── copilot.lua       # AI completion
+│       ├── copilot.lua       # AI completion (disabled)
 │       ├── dressing.lua      # UI improvements
 │       ├── formatting.lua    # Code formatting
 │       ├── gitsigns.lua      # Git integration
