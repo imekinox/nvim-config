@@ -1,5 +1,8 @@
-return {
-  {
-    "github/copilot.vim",
-  },
-}
+-- GitHub Copilot disabled
+-- return {
+--   {
+--     "github/copilot.vim",
+--   },
+-- }
+
+return {}

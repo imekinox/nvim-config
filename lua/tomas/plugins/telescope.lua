@@ -14,12 +14,56 @@ return {
     telescope.setup({
       defaults = {
         path_display = { "smart" },
+        file_ignore_patterns = {
+          "node_modules/.*",
+          ".git/.*",
+          ".next/.*",
+          ".claude/.*",
+          "%.lock",
+          "dist/.*",
+          "build/.*",
+          "%.min.js",
+          "%.min.css",
+          "coverage/.*",
+          "%.cache/.*",
+        },
         mappings = {
           i = {
             ["<C-k>"] = actions.move_selection_previous, -- move to prev result
             ["<C-j>"] = actions.move_selection_next, -- move to next result
             ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
           },
+        },
+      },
+      pickers = {
+        find_files = {
+          hidden = true, -- show hidden files
+          -- Use ripgrep to find files, excluding specific directories but including hidden files
+          find_command = { 
+            "rg", 
+            "--files", 
+            "--hidden", 
+            "--glob", "!**/.git/*", 
+            "--glob", "!**/node_modules/*",
+            "--glob", "!**/.next/*",
+            "--glob", "!**/.claude/*",
+            "--glob", "!**/dist/*",
+            "--glob", "!**/build/*",
+            "--glob", "!**/.cache/*",
+          },
+        },
+        live_grep = {
+          additional_args = function()
+            return { 
+              "--hidden", 
+              "--glob", "!**/.git/*", 
+              "--glob", "!**/node_modules/*",
+              "--glob", "!**/.next/*",
+              "--glob", "!**/.claude/*",
+              "--glob", "!**/dist/*",
+              "--glob", "!**/build/*",
+            }
+          end
         },
       },
     })
