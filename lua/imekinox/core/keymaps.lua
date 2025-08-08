@@ -59,3 +59,10 @@ keymap.set("n", "<C-M>", ":m -2<CR>", opts)
 
 keymap.set("n", "<M-Right>", "gt", opts)
 keymap.set("n", "<M-Left>", "gT", opts)
+
+-- avante.nvim keymaps
+keymap.set("n", "<leader>aa", function() require("avante.api").ask() end, { desc = "Avante: Ask" })
+keymap.set("v", "<leader>aa", function() require("avante.api").ask() end, { desc = "Avante: Ask" })
+keymap.set("n", "<leader>ar", function() require("avante.api").refresh() end, { desc = "Avante: Refresh" })
+keymap.set("n", "<leader>ae", function() require("avante.api").edit() end, { desc = "Avante: Edit" })
+keymap.set("v", "<leader>ae", function() require("avante.api").edit() end, { desc = "Avante: Edit" })

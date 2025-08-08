@@ -39,6 +39,7 @@ A modern, feature-rich Neovim configuration optimized for web development, with 
 - **Comment.nvim** - Smart commenting with treesitter context
 
 ### ⚡ **Productivity Features**
+- **Avante.nvim** - AI-powered code assistance (Cursor AI IDE experience in Neovim)
 - **Auto-session** - Session management and restoration
 - **Surround** - Easy text surrounding (quotes, brackets, tags)
 - **Substitute** - Enhanced text substitution
@@ -132,6 +133,17 @@ Optimized parsers and LSP support for:
 | `<Space>+` | Increment number |
 | `<Space>-` | Decrement number |
 
+### 🤖 **AI Assistance (Avante.nvim)**
+| Key | Action |
+|-----|--------|
+| `<Space>aa` | Ask AI about code (normal/visual mode) |
+| `<Space>ar` | Refresh AI response |
+| `<Space>ae` | Edit with AI (normal/visual mode) |
+| `<Alt-l>` | Accept AI suggestion |
+| `<Alt-]>` | Next AI suggestion |
+| `<Alt-[>` | Previous AI suggestion |
+| `<Ctrl-]>` | Dismiss AI suggestion |
+
 ## 📁 Project Structure
 
 ```
@@ -149,6 +161,7 @@ Optimized parsers and LSP support for:
 │       ├── alpha.lua         # Dashboard
 │       ├── autopairs.lua     # Auto bracket pairing
 │       ├── auto-session.lua  # Session management
+│       ├── avante.lua        # AI code assistance
 │       ├── bufferline.lua    # Buffer tabs
 │       ├── colorscheme.lua   # Theme configuration
 │       ├── comment.lua       # Smart commenting
