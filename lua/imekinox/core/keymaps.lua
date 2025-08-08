@@ -60,6 +60,12 @@ keymap.set("n", "<C-M>", ":m -2<CR>", opts)
 keymap.set("n", "<M-Right>", "gt", opts)
 keymap.set("n", "<M-Left>", "gT", opts)
 
+-- nvim-tree keymaps
+keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
+keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle file explorer on current file" })
+keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" })
+keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" })
+
 -- avante.nvim keymaps
 keymap.set("n", "<leader>aa", function() require("avante.api").ask() end, { desc = "Avante: Ask" })
 keymap.set("v", "<leader>aa", function() require("avante.api").ask() end, { desc = "Avante: Ask" })
