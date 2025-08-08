@@ -56,7 +56,14 @@ return {
         enabled = false,
       },
       
-      -- Provider configurations
+      -- Behaviour configuration
+      behaviour = {
+        -- Prevent fetching models from disabled providers
+        support_paste_from_clipboard = true,
+        minimize_diff = true,
+      },
+      
+      -- Provider configurations (only include enabled providers)
       providers = {
         claude = {
           endpoint = "https://api.anthropic.com",
@@ -68,9 +75,7 @@ return {
             max_tokens = 4096,
           },
         },
-        copilot = {
-          enabled = false, -- Explicitly disable Copilot provider
-        },
+        -- Copilot completely removed from providers to prevent model listing errors
       },
       
       -- Mappings
