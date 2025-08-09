@@ -7,7 +7,7 @@ return {
     require("claude-code").setup({
       -- Terminal window settings
       window = {
-        split_ratio = 0.6, -- 60% of screen for the terminal window (larger)
+        split_ratio = 0.4, -- 40% of screen for the terminal window
         position = "botright", -- Bottom right position
         enter_insert = false, -- Don't enter insert mode when opening (for easier scrolling)
         hide_numbers = true, -- Hide line numbers in terminal
@@ -38,29 +38,30 @@ return {
       },
     })
     
-    -- Add custom terminal scrolling keymaps that should work better
-    vim.api.nvim_create_autocmd("TermOpen", {
-      pattern = "*",
+    -- Set up global terminal keymaps that work reliably
+    -- Exit terminal insert mode with Escape+Escape
+    vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal insert mode" })
+    
+    -- Add custom terminal scrolling keymaps for all terminal buffers
+    vim.api.nvim_create_autocmd({"TermOpen", "BufEnter"}, {
+      pattern = "term://*",
       callback = function()
-        if vim.bo.filetype == "terminal" then
-          -- Terminal mode scrolling keymaps
-          vim.keymap.set("t", "<C-f>", "<C-\\><C-n><C-f>i", { buffer = true, desc = "Scroll down (terminal)" })
-          vim.keymap.set("t", "<C-b>", "<C-\\><C-n><C-b>i", { buffer = true, desc = "Scroll up (terminal)" })
-          vim.keymap.set("t", "<C-d>", "<C-\\><C-n><C-d>i", { buffer = true, desc = "Half page down (terminal)" })
-          vim.keymap.set("t", "<C-u>", "<C-\\><C-n><C-u>i", { buffer = true, desc = "Half page up (terminal)" })
-          
-          -- Normal mode scrolling when in terminal buffer
-          vim.keymap.set("n", "<C-f>", "<C-f>", { buffer = true, desc = "Scroll down" })
-          vim.keymap.set("n", "<C-b>", "<C-b>", { buffer = true, desc = "Scroll up" })
-          vim.keymap.set("n", "<C-d>", "<C-d>", { buffer = true, desc = "Half page down" })
-          vim.keymap.set("n", "<C-u>", "<C-u>", { buffer = true, desc = "Half page up" })
-          
-          -- Exit terminal insert mode easily
-          vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { buffer = true, desc = "Exit terminal insert mode" })
-          -- Toggle back to insert mode
-          vim.keymap.set("n", "i", "i", { buffer = true, desc = "Enter terminal insert mode" })
-          vim.keymap.set("n", "a", "a", { buffer = true, desc = "Enter terminal insert mode" })
-        end
+        local opts = { buffer = true, silent = true }
+        
+        -- Terminal mode scrolling keymaps
+        vim.keymap.set("t", "<C-f>", "<C-\\><C-n><C-f>i", vim.tbl_extend("force", opts, { desc = "Scroll down (terminal)" }))
+        vim.keymap.set("t", "<C-b>", "<C-\\><C-n><C-b>i", vim.tbl_extend("force", opts, { desc = "Scroll up (terminal)" }))
+        vim.keymap.set("t", "<C-d>", "<C-\\><C-n><C-d>i", vim.tbl_extend("force", opts, { desc = "Half page down (terminal)" }))
+        vim.keymap.set("t", "<C-u>", "<C-\\><C-n><C-u>i", vim.tbl_extend("force", opts, { desc = "Half page up (terminal)" }))
+        
+        -- Normal mode scrolling when in terminal buffer
+        vim.keymap.set("n", "<C-f>", "<C-f>", vim.tbl_extend("force", opts, { desc = "Scroll down" }))
+        vim.keymap.set("n", "<C-b>", "<C-b>", vim.tbl_extend("force", opts, { desc = "Scroll up" }))
+        vim.keymap.set("n", "<C-d>", "<C-d>", vim.tbl_extend("force", opts, { desc = "Half page down" }))
+        vim.keymap.set("n", "<C-u>", "<C-u>", vim.tbl_extend("force", opts, { desc = "Half page up" }))
+        
+        -- Exit terminal insert mode easily (buffer-specific backup)
+        vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", vim.tbl_extend("force", opts, { desc = "Exit terminal insert mode" }))
       end,
     })
   end,
