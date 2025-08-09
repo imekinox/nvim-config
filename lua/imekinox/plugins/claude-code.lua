@@ -39,8 +39,8 @@ return {
     })
     
     -- Set up global terminal keymaps that work reliably
-    -- Exit terminal insert mode with Escape+Escape
-    vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal insert mode" })
+    -- Exit terminal insert mode with jk (same as insert mode)
+    vim.keymap.set("t", "jk", "<C-\\><C-n>", { desc = "Exit terminal insert mode" })
     
     -- Add custom terminal scrolling keymaps for all terminal buffers
     vim.api.nvim_create_autocmd({"TermOpen", "BufEnter"}, {
@@ -60,8 +60,8 @@ return {
         vim.keymap.set("n", "<C-d>", "<C-d>", vim.tbl_extend("force", opts, { desc = "Half page down" }))
         vim.keymap.set("n", "<C-u>", "<C-u>", vim.tbl_extend("force", opts, { desc = "Half page up" }))
         
-        -- Exit terminal insert mode easily (buffer-specific backup)
-        vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", vim.tbl_extend("force", opts, { desc = "Exit terminal insert mode" }))
+        -- Exit terminal insert mode with jk (buffer-specific backup)
+        vim.keymap.set("t", "jk", "<C-\\><C-n>", vim.tbl_extend("force", opts, { desc = "Exit terminal insert mode" }))
       end,
     })
   end,
