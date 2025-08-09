@@ -7,7 +7,7 @@ return {
     require("claude-code").setup({
       -- Terminal window settings
       window = {
-        split_ratio = 0.4, -- 40% of screen for the terminal window
+        split_ratio = 0.6, -- 60% of screen for the terminal window (larger)
         position = "botright", -- Bottom right position
         enter_insert = false, -- Don't enter insert mode when opening (for easier scrolling)
         hide_numbers = true, -- Hide line numbers in terminal
