@@ -76,3 +76,9 @@ keymap.set("v", "<leader>ae", function() require("avante.api").edit() end, { des
 keymap.set("n", "<leader>a?", function() 
   vim.notify("Model selector disabled - using Claude Sonnet 4 only", vim.log.levels.INFO)
 end, { desc = "Avante: Model info (selector disabled)" })
+
+-- claude-code.nvim keymaps
+keymap.set("n", "<leader>cc", "<cmd>ClaudeCodeToggle<CR>", { desc = "Toggle Claude Code terminal" })
+keymap.set("n", "<leader>cn", "<cmd>ClaudeCodeNew<CR>", { desc = "New Claude Code session" })
+keymap.set("n", "<leader>cr", "<cmd>ClaudeCodeContinue<CR>", { desc = "Continue Claude Code session" })
+keymap.set("n", "<leader>cq", "<cmd>ClaudeCodeClose<CR>", { desc = "Close Claude Code terminal" })
