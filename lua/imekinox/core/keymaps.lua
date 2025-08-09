@@ -72,3 +72,7 @@ keymap.set("v", "<leader>aa", function() require("avante.api").ask() end, { desc
 keymap.set("n", "<leader>ar", function() require("avante.api").refresh() end, { desc = "Avante: Refresh" })
 keymap.set("n", "<leader>ae", function() require("avante.api").edit() end, { desc = "Avante: Edit" })
 keymap.set("v", "<leader>ae", function() require("avante.api").edit() end, { desc = "Avante: Edit" })
+-- Disable model selector to prevent Copilot errors
+keymap.set("n", "<leader>a?", function() 
+  vim.notify("Model selector disabled - using Claude Sonnet 4 only", vim.log.levels.INFO)
+end, { desc = "Avante: Model info (selector disabled)" })

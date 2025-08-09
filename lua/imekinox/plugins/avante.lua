@@ -37,6 +37,14 @@ return {
       ft = { "markdown", "Avante" },
     },
   },
+  init = function()
+    -- Completely disable Copilot provider at the core level
+    vim.g.avante_copilot_enabled = false
+    -- Prevent any Copilot provider initialization
+    if package.loaded["avante.providers.copilot"] then
+      package.loaded["avante.providers.copilot"] = nil
+    end
+  end,
   config = function()
     require("avante").setup({
       -- Default provider
@@ -50,6 +58,9 @@ return {
       
       -- Input provider configuration
       input_provider = "dressing", -- Use dressing.nvim for better input handling
+      
+      -- Explicitly set supported vendors to only include Claude
+      vendors = { "claude" },
       
       -- Disable copilot entirely
       copilot = {
