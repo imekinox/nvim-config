@@ -68,7 +68,7 @@ keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file
 
 
 -- claude-code.nvim keymaps
-keymap.set("n", "<leader>cc", "<cmd>ClaudeCodeToggle<CR>", { desc = "Toggle Claude Code terminal" })
-keymap.set("n", "<leader>cn", "<cmd>ClaudeCodeNew<CR>", { desc = "New Claude Code session" })
+keymap.set("n", "<leader>cc", "<cmd>ClaudeCode<CR>", { desc = "Toggle Claude Code terminal" })
 keymap.set("n", "<leader>cr", "<cmd>ClaudeCodeContinue<CR>", { desc = "Continue Claude Code session" })
-keymap.set("n", "<leader>cq", "<cmd>ClaudeCodeClose<CR>", { desc = "Close Claude Code terminal" })
+keymap.set("n", "<leader>cp", "<cmd>ClaudeCodeResume<CR>", { desc = "Resume Claude Code (picker)" })
+keymap.set("n", "<leader>cv", "<cmd>ClaudeCodeVerbose<CR>", { desc = "Claude Code (verbose)" })

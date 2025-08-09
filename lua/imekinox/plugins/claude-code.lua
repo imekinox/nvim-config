@@ -9,19 +9,9 @@ return {
       window = {
         split_ratio = 0.4, -- 40% of screen for the terminal window
         position = "botright", -- Bottom right position
-        enter_insert = true, -- Enter insert mode when opening
+        enter_insert = false, -- Don't enter insert mode when opening (for easier scrolling)
         hide_numbers = true, -- Hide line numbers in terminal
         hide_signcolumn = true, -- Hide sign column in terminal
-        
-        -- Floating window configuration (alternative)
-        float = {
-          width = "85%", -- Width of floating window
-          height = "80%", -- Height of floating window  
-          row = "center", -- Center vertically
-          col = "center", -- Center horizontally
-          relative = "editor", -- Relative to editor
-          border = "rounded", -- Border style
-        },
       },
       
       -- File refresh settings
@@ -29,7 +19,7 @@ return {
         enable = true, -- Enable file change detection
         updatetime = 100, -- updatetime when Claude Code is active (milliseconds)
         timer_interval = 1000, -- How often to check for file changes (milliseconds)
-        show_notifications = true, -- Show notification when files are reloaded
+        show_notifications = false, -- Disable notifications to reduce noise
       },
       
       -- Git project settings
@@ -46,21 +36,32 @@ return {
         resume = "--resume", -- Display an interactive conversation picker
         verbose = "--verbose", -- Enable verbose logging
       },
-      
-      -- Keymaps
-      keymaps = {
-        toggle = {
-          normal = "<leader>cc", -- Normal mode keymap for toggling Claude Code
-          terminal = "<C-,>", -- Terminal mode keymap for toggling Claude Code
-          variants = {
-            continue = "<leader>cr", -- Normal mode keymap for Claude Code with continue flag
-            resume = "<leader>cp", -- Normal mode keymap for Claude Code with resume flag
-            verbose = "<leader>cv", -- Normal mode keymap for Claude Code with verbose flag
-          },
-        },
-        window_navigation = true, -- Enable window navigation keymaps (<C-h/j/k/l>)
-        scrolling = true, -- Enable scrolling keymaps (<C-f/b>) for page up/down
-      },
+    })
+    
+    -- Add custom terminal scrolling keymaps that should work better
+    vim.api.nvim_create_autocmd("TermOpen", {
+      pattern = "*",
+      callback = function()
+        if vim.bo.filetype == "terminal" then
+          -- Terminal mode scrolling keymaps
+          vim.keymap.set("t", "<C-f>", "<C-\\><C-n><C-f>i", { buffer = true, desc = "Scroll down (terminal)" })
+          vim.keymap.set("t", "<C-b>", "<C-\\><C-n><C-b>i", { buffer = true, desc = "Scroll up (terminal)" })
+          vim.keymap.set("t", "<C-d>", "<C-\\><C-n><C-d>i", { buffer = true, desc = "Half page down (terminal)" })
+          vim.keymap.set("t", "<C-u>", "<C-\\><C-n><C-u>i", { buffer = true, desc = "Half page up (terminal)" })
+          
+          -- Normal mode scrolling when in terminal buffer
+          vim.keymap.set("n", "<C-f>", "<C-f>", { buffer = true, desc = "Scroll down" })
+          vim.keymap.set("n", "<C-b>", "<C-b>", { buffer = true, desc = "Scroll up" })
+          vim.keymap.set("n", "<C-d>", "<C-d>", { buffer = true, desc = "Half page down" })
+          vim.keymap.set("n", "<C-u>", "<C-u>", { buffer = true, desc = "Half page up" })
+          
+          -- Exit terminal insert mode easily
+          vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { buffer = true, desc = "Exit terminal insert mode" })
+          -- Toggle back to insert mode
+          vim.keymap.set("n", "i", "i", { buffer = true, desc = "Enter terminal insert mode" })
+          vim.keymap.set("n", "a", "a", { buffer = true, desc = "Enter terminal insert mode" })
+        end
+      end,
     })
   end,
   
