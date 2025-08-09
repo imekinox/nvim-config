@@ -40,6 +40,19 @@ return {
   init = function()
     -- Completely disable Copilot provider at the core level
     vim.g.avante_copilot_enabled = false
+    
+    -- Set environment variable to disable Copilot
+    vim.env.GITHUB_COPILOT_DISABLED = "1"
+    
+    -- Override the copilot provider module to prevent any loading
+    package.preload["avante.providers.copilot"] = function()
+      return {
+        models_list = function() return {} end,
+        get_config = function() return nil end,
+        enabled = false,
+      }
+    end
+    
     -- Prevent any Copilot provider initialization
     if package.loaded["avante.providers.copilot"] then
       package.loaded["avante.providers.copilot"] = nil
