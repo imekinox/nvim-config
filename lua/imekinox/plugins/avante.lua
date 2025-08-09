@@ -48,31 +48,13 @@ return {
   config = function()
     require("avante").setup({
       -- Default provider
-      provider = "claude", -- Recommend using Claude
+      provider = "claude",
       
       -- Auto suggestions provider
-      auto_suggestions_provider = "claude", -- Since you don't have copilot active
-      
-      -- Mode: "agentic" for modern tool-based interaction or "legacy" for older planning method
-      mode = "agentic",
+      auto_suggestions_provider = "claude",
       
       -- Input provider configuration
-      input_provider = "dressing", -- Use dressing.nvim for better input handling
-      
-      -- Explicitly set supported vendors to only include Claude
-      vendors = { "claude" },
-      
-      -- Disable copilot entirely
-      copilot = {
-        enabled = false,
-      },
-      
-      -- Behaviour configuration
-      behaviour = {
-        -- Prevent fetching models from disabled providers
-        support_paste_from_clipboard = true,
-        minimize_diff = true,
-      },
+      input_provider = "dressing",
       
       -- Provider configurations (only include enabled providers)
       providers = {
