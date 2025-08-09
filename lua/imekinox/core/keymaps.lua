@@ -66,16 +66,6 @@ keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggl
 keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" })
 keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" })
 
--- avante.nvim keymaps
-keymap.set("n", "<leader>aa", function() require("avante.api").ask() end, { desc = "Avante: Ask" })
-keymap.set("v", "<leader>aa", function() require("avante.api").ask() end, { desc = "Avante: Ask" })
-keymap.set("n", "<leader>ar", function() require("avante.api").refresh() end, { desc = "Avante: Refresh" })
-keymap.set("n", "<leader>ae", function() require("avante.api").edit() end, { desc = "Avante: Edit" })
-keymap.set("v", "<leader>ae", function() require("avante.api").edit() end, { desc = "Avante: Edit" })
--- Disable model selector to prevent Copilot errors
-keymap.set("n", "<leader>a?", function() 
-  vim.notify("Model selector disabled - using Claude Sonnet 4 only", vim.log.levels.INFO)
-end, { desc = "Avante: Model info (selector disabled)" })
 
 -- claude-code.nvim keymaps
 keymap.set("n", "<leader>cc", "<cmd>ClaudeCodeToggle<CR>", { desc = "Toggle Claude Code terminal" })
