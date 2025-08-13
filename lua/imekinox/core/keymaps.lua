@@ -67,8 +67,11 @@ keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse fi
 keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" })
 
 
--- claude-code.nvim keymaps
-keymap.set("n", "<leader>cc", "<cmd>ClaudeCode<CR>", { desc = "Toggle Claude Code terminal" })
-keymap.set("n", "<leader>cr", "<cmd>ClaudeCodeContinue<CR>", { desc = "Continue Claude Code session" })
-keymap.set("n", "<leader>cp", "<cmd>ClaudeCodeResume<CR>", { desc = "Resume Claude Code (picker)" })
-keymap.set("n", "<leader>cv", "<cmd>ClaudeCodeVerbose<CR>", { desc = "Claude Code (verbose)" })
+-- pomo.nvim keymaps (pomodoro timer)
+keymap.set("n", "<leader>ps", "<cmd>TimerStart 25m Work<CR>", { desc = "Start 25min work timer" })
+keymap.set("n", "<leader>pb", "<cmd>TimerStart 5m Break<CR>", { desc = "Start 5min break timer" })
+keymap.set("n", "<leader>pl", "<cmd>TimerStart 15m Long Break<CR>", { desc = "Start 15min long break timer" })
+keymap.set("n", "<leader>pp", "<cmd>TimerSession pomodoro<CR>", { desc = "Start pomodoro session" })
+keymap.set("n", "<leader>pt", "<cmd>TimerStop<CR>", { desc = "Stop timer" })
+keymap.set("n", "<leader>ph", "<cmd>TimerHide<CR>", { desc = "Hide timer" })
+keymap.set("n", "<leader>pw", "<cmd>TimerShow<CR>", { desc = "Show timer" })
